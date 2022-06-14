@@ -1,0 +1,38 @@
+<div>
+  <p>House:</p>
+  <select [(ngModel)]="houseOption" (change)="onChangeHouse()">
+    <option *ngFor="let house of houseList">{{ house.name }}</option>
+  </select>
+  <br />
+  <p>Apartment:</p>
+  <input
+    type="search"
+    list="apartments"
+    id="apartmentOption"
+    [(ngModel)]="apartmentOption"
+    (change)="onChangeApartment()"
+  />
+  <datalist id="apartments">
+    <option *ngFor="let room of rooms">
+      {{ room }}
+    </option>
+  </datalist>
+  <br />
+  <p>Person:</p>
+  <input
+    type="search"
+    list="persons"
+    id="personOption"
+    [(ngModel)]="personOption"
+  />
+  <datalist id="persons">
+    <option *ngFor="let person of persons">
+      {{ person }}
+    </option>
+  </datalist>
+  <br /><br />
+</div>
+<button (click)="onClick()" [disabled]="personOption === ''">Отправить</button>
+<div *ngFor="let item of result">
+  {{ item }}
+</div>
